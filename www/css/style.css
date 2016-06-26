@@ -1,0 +1,41 @@
+/* Empty. Add your own CSS if you like */
+.item-input{
+  /*height: 100px;*/
+  display: block !important;
+}
+
+.item-people{
+  width: 150px;
+  /*height: 50px;*/
+  float: left !important;
+  display: block !important;
+  margin: 10px !important;
+}
+.item-card{
+  width: 180px !important;
+  float: right;
+  margin: 10px !important;
+}
+.input-label{
+  display: block!important;
+  float: left!important;
+  width: 50px!important;
+  height: 30px!important;
+  margin:3px 0 7px 0;
+  /*height: ;*/
+}
+.item-time{
+  width: 80px;
+  margin: 10px 3px !important;
+  float: left!important;
+}
+.item-choice{
+  width: 50px!important;
+  float: left!important;
+  margin: 0 5px;
+}
+.from-to{
+  float: left;
+  margin: 10px 6px;
+}
+
