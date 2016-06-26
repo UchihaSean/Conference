@@ -22,9 +22,15 @@ angular.module('starter.controllers', [])
     //start 中绑定开始时间 start.month .day .hour .minute
     //end 中格式和start 中相同
     //long.minute 绑定持续时间
+    //meeting.theme 会议主题
+    //会议人员需要通过复选框验证
+    //add
     $scope.requestMeeting=function(){
       //$scope.meeting_info="暂无";
 
+      for (var i=0;i<$scope.important_people.length;i++){
+        console.log($scope.important_people.indexOf(i).id);
+      }
       $http.post(url, data, config)
         .success(function (data, status, headers, config) {
           //会议信息修改
@@ -36,6 +42,7 @@ angular.module('starter.controllers', [])
         });
     };
     //获取人员名单
+    //add
     $scope.getImportantPeople=function(){
       $http.post(url, data, config)
         .success(function (data, status, headers, config) {
@@ -49,6 +56,7 @@ angular.module('starter.controllers', [])
         });
     };
     //复选框选中操作 或许有更好方式
+    //add
     $scope.getChoose=function(choose_person){
       if (choose_person.choose=='false'){
         choose_person.choose=='true'
