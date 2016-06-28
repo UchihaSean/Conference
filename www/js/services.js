@@ -55,10 +55,10 @@ angular.module('starter.services', [])
 .factory('Important_People',function(){
     //测试用，连接后端后进行清空
     var people=[
-      {id:1, name:"zhouyi",choose:"false"},
-      {id:2, name:"jilingyang",choose:"false"},
-      {id:3, name:"xujiacheng",choose:"false"},
-      {id:4, name:"xujiacheng",choose:"false"}
+      {id:1, name:"zhouyi",choose:false},
+      {id:2, name:"jilingyang",choose:false},
+      {id:3, name:"xujiacheng",choose:false},
+      {id:4, name:"Yao",choose:false}
     ];
     return{
       all:function(){
@@ -103,8 +103,8 @@ angular.module('starter.services', [])
     for (var i=0;i<24;i++){
       hour.push(i);
     }
-    for (var i=0;i<60;i++){
-      minute.push(i);
+    for (var i=0;i<6;i++){
+      minute.push(i*10);
     }
     for (var i=1;i<21;i++){
       long.push(i*10);

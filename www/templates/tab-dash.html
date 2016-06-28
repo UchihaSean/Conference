@@ -1,6 +1,6 @@
-<ion-view view-title="Dashboard">
+<ion-view view-title="召开会议申请">
   <ion-content class="padding">
-    <div class="content has-header padding">
+    <div class="content has-header padding" >
       <div class="list">
         <label class="item item-input">
           <input type="text" placeholder="会议主题" ng-model="meeting.theme">
@@ -15,27 +15,27 @@
         <!--</div>-->
 
         <!-- 选择与会人员复选框 点击进行初始化 -->
-        <label class="item item-input" ng-click="getImportantPeople()">
+        <label class="item item-input">
 
             <!--<div ng-repeat="important_person in important_people"><input type="checkbox" />{{important_person.name}}</div>-->
-          <ion-checkbox ng-repeat="important_person in important_people" class="item-people" ng-click="getChoose(important_person)">
+          <ion-checkbox ng-repeat="important_person in important_people"  class="item-people" ng-click="getChoose(important_person,0)">
             {{ important_person.name }}
           </ion-checkbox>
           <div class="card item-card">
-            <div class="item item-text-wrap">
-              选择必须与会人员
+            <div class="item item-text-wrap"  >
+              <label  ng-click="getImportantPeople(0)">选择必须与会人员</label>
             </div>
           </div>
         </label>
-        <label class="item item-input" ng-click="getImportantPeople()">
+        <label class="item item-input">
 
           <!--<div ng-repeat="important_person in important_people"><input type="checkbox" />{{important_person.name}}</div>-->
-          <ion-checkbox ng-repeat="normal_person in normal_people" class="item-people">
+          <ion-checkbox ng-repeat="normal_person in normal_people" class="item-people" ng-click="getChoose(normal_person,1)">
             {{normal_person.name}}
           </ion-checkbox>
           <div class="card item-card">
             <div class="item item-text-wrap">
-              选择非必须与会人员
+              <label  ng-click="getImportantPeople(1)">选择非必须与会人员</label>
             </div>
           </div>
         </label>
@@ -118,7 +118,13 @@
       </div>
       <div class="card">
         <div class="item item-text-wrap">
-          <p>{{meeting_info}}</p>
+          <p ng-repeat="x in meeting_info">
+            <button  ng-click="confirm(x)" class="button button-block button-positive">
+              {{'会议主题：'+x.name+'  开始时间：'+x.start.month +'月'+x.start.day+'日'+x.start.hour+'时'+x.start.minute+'分'}}
+              {{ '  结束时间：'+x.end.month +'月'+x.end.day+'日'+x.end.hour+'时'+x.end.minute+'分'}}
+              {{'  会议室名称：'+x.room.name+'  参加人员：'}}<span ng-repeat="y in x.persons">{{y.name+','}}</span>
+            </button>
+          </p>
         </div>
       </div>
 
